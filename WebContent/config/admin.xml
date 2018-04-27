@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+	<user>
+		<table_id>2</table_id>
+		<userName>admin</userName>
+		<userPwd>admin</userPwd>
+		<userShowName>admin</userShowName>
+	</user>
+	<user>
+		<table_id>1</table_id>
+		<userName>admin1</userName>
+		<userPwd>admin1</userPwd>
+		<userShowName>admin1</userShowName>
+	</user>
+</root>

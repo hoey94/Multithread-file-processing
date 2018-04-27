@@ -1,0 +1,37 @@
+web.xml配置
+servletName:UploadInit配置
+uploadBasePath: 上传文件基础路径
+downHost: 下载文件服务器ip
+downPort: 下载文件服务器端口
+downProject: 下载服务器映射工程名
+
+项目开放接口
+文件分割大小 fileSplitSize:1024 * 1024(默认)
+用户信息传递 userData: {"userName":"test","userId":"123456789"},
+文件上传接口 uploadUrl: https://127.1.1.1:8080/systemAction/systemAction.do?method=uploadPartFile&r="+Math.random()
+文件合并接口 merageUrl: https://127.1.1.1:8080/systemAction/systemAction.do?method=meragePartFile&r="+Math.random()
+文件后缀过滤添加：fileTypeFilter ['txt','doc']
+ 
+文合并后返回上传文件路径,真实名称,显示名称,大小等文件属性json数组
+
+文件保存接口 uploadUrl: https://127.1.1.1:8080/systemAction/systemAction.do?method=addUserUploadInfo&r="+Math.random()
+参数: @RequestParam("uploadFileName") String uploadFileName,@RequestParam("userInfoJosnStr") String jsonStr
+jsonStr: {"table_id":"caca","userName": "dddd"}
+
+文件保存接口: https://127.1.1.1:8080/systemAction/systemAction.do?method=saveUploadFileInfo
+保存后返回是否成功json数据:{"status":"1","msg":"成功"}
+
+文件删除接口:  https://127.1.1.1:8080/systemAction/systemAction.do?method=deleteModel
+传入数据为json: {"table_id":"2572cac752casc"}
+返回是否成功json数据：{"status":"1","msg":"成功"}
+
+文件查询接口:  https://127.1.1.1: /systemAction/systemAction.do?method=getUploadFileInfo
+传入数据：{"fileName":"jdk.exe","inputUserId": "用于查询个人数据"}
+返回数据：{"count":20,"sum":100,"list":[{},{}]}
+
+
+bindFileInput: 
+添加两个属性： fileInputId： 上传input id
+		   clickId: 确定上传id(当为空时，file为change事件，否则是clickId click事件可以续传)
+		   processFn: (index : 当前上传的第几个,total:总共文件分割个数,status:状态 1成功，-1失败
+		   
